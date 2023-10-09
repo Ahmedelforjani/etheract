@@ -1,46 +1,27 @@
-# etheract
+## Description
 
-Etheract is a web tool that allows users to interact with unverified smart contract methods in multiple blockchain networks with simple UI.
+This is source code of [Etheract](https://ethact.vercel.app/) website.
 
-It is designed to make it easy to call any function of any smart contract, even if the contract source code is not verified on Etherscan or other block explorers. Users can connect their wallets using MetaMask, WalletConnect, or Coinbase Wallet and enter the contract address and ABI (Application Binary Interface) of the smart contract they want to interact with and it will be stored on browser localstorage. Etheract will then display the available functions and let the user input the parameters and execute the function.
+What is Etheract? it is a web tool that allows users to interact with unverified smart contract methods in multiple blockchain networks with simple UI. It is designed to make it easy to call any function of any smart contract, even if the contract source code is not verified on Etherscan or other block explorers. Users can connect their wallets using MetaMask, WalletConnect, or Coinbase Wallet and enter the contract address and ABI (Application Binary Interface) of the smart contract they want to interact with and it will be stored on browser localstorage. Etheract will then display the available functions and let the user input the parameters and execute the function.
 
-<!-- Etheract also shows the transaction details and status after the execution. -->
+## Prerequisites
 
-It's a useful tool to explore the functionality of smart contracts without having to verify them on block explorers.
+Website was developed using [Next.js](https://github.com/vercel/next.js) that uses [Node.js](https://nodejs.org/en) 16.14 or later.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Running locally
 
-## Getting Started
+Download the project and navigate to the root folder (the one with this file), then execute
 
-First, run the development server:
+`npm install`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+`npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Website will be accessible on http://localhost:3000/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To build the bundle, execute
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+`npm run build`
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Licensed under the [MIT license](./LICENSE.md).
