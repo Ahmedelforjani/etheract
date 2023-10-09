@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ConnectWalletButton from "./connect-wallet-button";
 import { DarkModeToggle } from "./dark-mode-toggle";
 
 export default function Header() {

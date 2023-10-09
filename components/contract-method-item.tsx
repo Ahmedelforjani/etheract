@@ -1,9 +1,4 @@
-import {
-  useAccount,
-  useNetwork,
-  useSwitchNetwork,
-  useWalletClient,
-} from "wagmi";
+import { useAccount, useNetwork, useWalletClient } from "wagmi";
 import {
   AccordionContent,
   AccordionItem,
@@ -18,7 +13,6 @@ import { createPublicClient, http, parseEther } from "viem";
 
 import {
   Address,
-  ContractItemType,
   ReadContractItemTypeAbi,
   WriteContractItemTypeAbi,
 } from "@/types";
@@ -38,9 +32,7 @@ export default function ContractMethodItem({
 }) {
   const { isConnected } = useAccount();
   const network = useNetwork();
-  const currentContract = useStore(
-    (state) => state.currentContract
-  ) as ContractItemType;
+  const currentContract = useStore((state) => state.currentContract);
 
   const chain = useMemo(
     () => supportedChains.find((c) => c.id === currentContract?.chainId),
@@ -163,8 +155,9 @@ export default function ContractMethodItem({
               size={"sm"}
               disabled={
                 loading ||
-                (!isConnected && !isReadMethod) ||
-                network.chain?.id !== currentContract.chainId
+                (!isReadMethod &&
+                  (!isConnected ||
+                    network.chain?.id !== currentContract?.chainId))
               }
             >
               {loading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}

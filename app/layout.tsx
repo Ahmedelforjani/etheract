@@ -24,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers>
           <div className="flex flex-col">
             <Header />
-            <div className="flex-1 py-12">
+            <div className="container flex-1 py-12">
               <ClientOnly>{children}</ClientOnly>
             </div>
           </div>
