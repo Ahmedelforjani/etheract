@@ -9,8 +9,13 @@ export default function Header() {
         <div className="flex-1">
           <Link
             href="/"
-            className="text-lg font-bold text-gray-800 lg:text-2xl dark:text-gray-100"
+            className="flex gap-2 items-center text-lg font-bold lg:text-2xl hover:opacity-80"
           >
+            <img
+              src="/logo.jpeg"
+              alt="etheract"
+              className="h-12 rounded-full"
+            />
             Etheract
           </Link>
         </div>
