@@ -59,6 +59,17 @@ export default function ContractMethodItem({
   const [params, setParams] = useState<ParamType[]>([]);
   const isReadMethod = item.stateMutability === "view";
 
+  const parseArgs = (params: any[]): any => {
+    return params.map((param) => {
+      const regex = /\[(.*?)\]/g;
+      const match = regex.exec(param as string);
+      if (match) {
+        return match[1].split(",").map((address) => address.trim());
+      }
+      return param;
+    });
+  };
+
   const readMethod = async (item: ReadContractItemTypeAbi) => {
     if (!currentContract) return;
     const response = await publicClient?.readContract({
@@ -71,20 +82,23 @@ export default function ContractMethodItem({
   };
 
   const writeMethod = async (item: WriteContractItemTypeAbi) => {
-    if (!currentContract) return;
+    if (!currentContract || !publicClient) return;
 
     const value =
       item.stateMutability === "payable" && ethValue
         ? parseEther(ethValue)
         : undefined;
 
-    const response = await walletClient?.writeContract({
+    const { request } = await publicClient.simulateContract({
       abi: currentContract.abi,
       address: currentContract.address,
       functionName: item.name,
-      args: params,
+      args: parseArgs(params),
       value: value,
+      account: walletClient?.account,
     });
+
+    const response = await walletClient?.writeContract(request);
 
     setHash(response);
   };
